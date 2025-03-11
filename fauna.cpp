@@ -1,6 +1,6 @@
 #include "fauna.h"
 
-/* Fauna cpp file A04.
+/* Fauna cpp file A05.
  * Sean Perks With massive help from: Robert Martin, CS162 */
 
 
