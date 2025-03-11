@@ -1,0 +1,15 @@
+Blue-footed Booby;Aerial;80000;2;1;Blue feet and dive for fish.
+Bottlenose Dolphin;Aquatic;1000000;2;387;Grey with a short beak and hooked fin.
+Flightless Cormorant;Aquatic;2000;0;5;Can no longer fly, but a great swimmer.
+Frigatebird;Aerial;130000;0;1;Soaring black bird that may steal a meal.
+Fur Seal;Aquatic;15000;2;63;Smallest of all the eared seals.
+Golden Crownose Ray;Aquatic;1000000;3;22;An eagle ray that flies through the water.
+Green Sea Turtle;Aquatic;20000;4;150.4;Large marine turtles that nest on the beaches.
+Hammerhead Shark;Aquatic;100;3;230;Hunts using electroreceptors on its head.
+House Cat;My house;2000000;4;12;My squishy boi
+Land Iguana;Terrestrial;7000;2;11;Brown-orange and feeds on cactus.
+Marine Iguana;Aquatic;250000;2;8;Black and grey-green-red and feed on algae.
+Nazca Booby;Aerial;40000;3;1;Black and white plumage and dive for fish.
+Penguin;Ice;340000;4;23.56;It's a penguin.
+Sally Lightfoot Crab;Aquatic;1000000;1;0;Bright colors and everywhere on the beach.
+Tortoise;Terrestrial;22000;0;417;Large (> 900lbs) and long lived (> 100 years).
