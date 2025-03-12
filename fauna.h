@@ -2,8 +2,8 @@
 #define __FAUNA__
 #include "creature.h"
 
-/* Fauna header file A05.
- * Sean Perks  CS162 */
+/* Fauna header file A03.
+ * Sean Perks With massive help from: Robert Martin, CS162 */
 
 
 class Fauna {
@@ -11,7 +11,6 @@ class Fauna {
 	struct Node {
 	    Creature theCreature;
             Node * next; // chain nodes using the next pointers
-            Node * prev;
 	};
 	Node * head, * tail;
 	
@@ -33,10 +32,9 @@ class Fauna {
 
 
 	
-	void remove();
+	bool remove();
 	void searchByDomain();
 	void printCreatures();
-	void printCreaturesReverse();
 	void searchByName();
 	
 	 // Overloading the square brackets (subscript operator).

@@ -1,7 +1,7 @@
 #include "fauna.h"
 
  /*
-  * Assignment 5
+  * Assignment 4
 
   Created by sean perks 3/5/2025
   
@@ -12,7 +12,7 @@ int main() {
 
 	// Create a Fauna object.
 	Fauna myCreatures;
-	char choice = ' ', direction = ' ';
+	char choice = ' ';
 	cout << "Welcome to Fauna Database!" << endl << endl;
 	count = myCreatures.loadCreatures(); 
 	if(count != ERROR) {
@@ -25,16 +25,7 @@ int main() {
 		while(choice != 'q') {
 			switch(choice) {
 				case 'l':
-					cout << "(F)orwards or (B)ackwards? ";
-					cin >> direction;
-					cin.ignore();
-					if(direction == 'F') {
-						myCreatures.printCreatures();
-					}
-					else if(direction == 'B') {
-						myCreatures.printCreaturesReverse();
-					}
-					
+					myCreatures.printCreatures();
 					break; 
 				case 'a':
 					cout << "Add an creature!" << endl << endl;

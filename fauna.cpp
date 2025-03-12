@@ -1,7 +1,7 @@
 #include "fauna.h"
 
 /* Fauna cpp file A05.
- * Sean Perks CS162 */
+ * Sean Perks With massive help from: Robert Martin, CS162 */
 
 
 // Default constructor
@@ -64,57 +64,45 @@ void Fauna::printCreatures() {
     }
 }
 
-// print in reverse
-void Fauna::printCreaturesReverse() {
-    
-    printHeader();
-    
-    // traverse list
-    Node * cur = tail;
-    int line = 1;
-    
-    while(cur != nullptr) {
-	// We use overloaded << instead of: cout << (*cur).theCreature.getStatusNumber() << endl;
-	cout << right << setw(2) << line << ": " << cur->theCreature << endl;
-	cur = cur->prev;
-	line++;
-    }
-}
-
 // inserts an creature
 void Fauna::insert(Creature & toAdd) {
     Node * temp = new Node;
     temp->theCreature = toAdd;
     temp->next = nullptr;
-    temp->prev = nullptr;
     
     if(head == nullptr) { // list is empty
 	head = temp;
 	tail = temp;
     }
-    // toAdd goes first in the list
-    else if(strcmp(head->theCreature.getName(), temp->theCreature.getName()) >= 0) {
-	temp->next = head;
-	head->prev = temp;
-	head = temp;
+    else { // head is not nullptr
+	Node * cur = head;
+	Node * prev = nullptr;
+	
+	while (cur != nullptr && strcmp(cur->theCreature.getName(), temp->theCreature.getName()) <= 0) {
+            prev = cur;
+            cur = cur->next;
+        }
+
+	// first in list 
+        if (prev == nullptr) { 
+            temp->next = head;
+            head = temp;
+        } 
+	// goes at end
+        else if (cur == nullptr) { 
+            prev->next = temp;
+            tail = temp; 
+        } 
+        else { // somewhere in middle
+            prev->next = temp;
+            temp->next = cur;
+        }
+	
+	// debug
+	//cout << "Tail: " << (*tail).theCreature.getName() << endl;
+    
     }
-    // to add goes to tail
-    else if(strcmp(toAdd.getName(), tail->theCreature.getName()) >= 0) {
-	tail->next = temp;
-	temp->prev = tail;
-	tail = temp;
-    }
-    else {
-        Node * cur = head;
-	// prev = head; I don't think I need this but we'll see
-	while(strcmp(temp->theCreature.getName(), cur->theCreature.getName()) >= 0) {
-	    cur = cur->next;
-	}
-	temp->next = cur;
-	temp->prev = cur->prev;
-	cur->prev->next = temp;
-	cur->prev = temp;
-    }
+    
     count++;
 }
 
@@ -169,9 +157,8 @@ Creature & Fauna::operator[](int index) {
 
 
 // def to remove a struct from the creature strruct list
-void Fauna::remove() {
-    Node * cur = head;
-    //Node * prev = head; // dont think i need this
+bool Fauna::remove() {
+    Node *prev = head, *cur = head;
     bool success = false;
     char removeName[STR_SIZE];
     // possibility 1, empty list.
@@ -180,6 +167,7 @@ void Fauna::remove() {
 	cin.getline(removeName, STR_SIZE);
 	
 	while(cur && strcmp(cur->theCreature.getName(), removeName) != 0) {
+	    prev = cur;
 	    cur = cur->next;
 	}
 	
@@ -187,35 +175,32 @@ void Fauna::remove() {
 	    // option 1. if cur == head then we are deleting the first node
 	    if(cur == head) {
 		head = head->next;
-		if(head) { // not the only one in the list
-		    head->prev = nullptr;
-		}
-		else { // if head == nullptr the list empty
+		delete cur;
+		if(cur == nullptr) {  // we deleted last node, update the tail
 		    tail = nullptr;
 		}
 	    }
-	    
 	    // option 2, match is the last node
 	    else if(cur == tail) {
-		tail = tail->prev;
-		tail->next = nullptr;
+		tail = prev;
+		prev->next = nullptr;
+		delete cur;
 	    }
 	    // option 3, match not first or last node
 	    else {
-		cur->prev->next = cur->next;
-		cur->next->prev = cur->prev;
+		prev->next = cur->next;
+		delete cur;
 	    }
-	    delete cur;
 	    success = true;
-	    
 	}
     }
     if(!success) {
 	cout << "Not found. No creature deleted." << endl;
     }
     else {
-	cout << "The creature: " << removeName << " was successfully removed." << endl;
+	cout << "The creature " << removeName << " was successfully removed." << endl;
     }
+    return success;
 }
 
 // used to search the db by name
