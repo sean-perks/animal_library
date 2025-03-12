@@ -11,5 +11,6 @@ Land Iguana;Terrestrial;7000;2;11;Brown-orange and feeds on cactus.
 Marine Iguana;Aquatic;250000;2;8;Black and grey-green-red and feed on algae.
 Nazca Booby;Aerial;40000;3;1;Black and white plumage and dive for fish.
 Penguin;Ice;340000;4;23.56;It's a penguin.
+Rough Skinned Newt;Terrestrial;1000000;3;0.12;Orange belly, rough skin. DO NOT EAT!
 Sally Lightfoot Crab;Aquatic;1000000;1;0;Bright colors and everywhere on the beach.
 Tortoise;Terrestrial;22000;0;417;Large (> 900lbs) and long lived (> 100 years).
