@@ -2,8 +2,8 @@
 #define __FAUNA__
 #include "creature.h"
 
-/* Fauna header file A03.
- * Sean Perks With massive help from: Robert Martin, CS162 */
+/* Fauna header file A05.
+ * Sean Perks  CS162 */
 
 
 class Fauna {
@@ -33,9 +33,10 @@ class Fauna {
 
 
 	
-	bool remove();
+	void remove();
 	void searchByDomain();
 	void printCreatures();
+	void printCreaturesReverse();
 	void searchByName();
 	
 	 // Overloading the square brackets (subscript operator).
