@@ -11,6 +11,7 @@ class Fauna {
 	struct Node {
 	    Creature theCreature;
             Node * next; // chain nodes using the next pointers
+            Node * prev;
 	};
 	Node * head, * tail;
 	

@@ -69,39 +69,20 @@ void Fauna::insert(Creature & toAdd) {
     Node * temp = new Node;
     temp->theCreature = toAdd;
     temp->next = nullptr;
+    temp->prev = nullptr;
     
     if(head == nullptr) { // list is empty
 	head = temp;
 	tail = temp;
     }
-    else { // head is not nullptr
-	Node * cur = head;
-	Node * prev = nullptr;
-	
-	while (cur != nullptr && strcmp(cur->theCreature.getName(), temp->theCreature.getName()) <= 0) {
-            prev = cur;
-            cur = cur->next;
-        }
-
-	// first in list 
-        if (prev == nullptr) { 
-            temp->next = head;
-            head = temp;
-        } 
-	// goes at end
-        else if (cur == nullptr) { 
-            prev->next = temp;
-            tail = temp; 
-        } 
-        else { // somewhere in middle
-            prev->next = temp;
-            temp->next = cur;
-        }
-	
-	// debug
-	//cout << "Tail: " << (*tail).theCreature.getName() << endl;
-    
+    // toAdd goes first in the list
+    else if(strcmp(head->theCreature.getName(), temp->theCreature.getName()) >= 0) {
+	temp->next = head;
+	head->next = temp;
+	head->prev = temp;
+	head = temp;
     }
+    
     
     count++;
 }
