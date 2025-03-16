@@ -142,7 +142,7 @@ bool Fauna::addCreature() {
     }
     
     cout << "How much does the creature weigh (pounds)? ";
-    weightArg = readDouble();
+    weightArg = readDouble(5000.99);
 
     cout << "Enter a description for the creature: ";
     cin.getline(descArg, STR_SIZE);

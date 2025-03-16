@@ -1,4 +1,4 @@
-// Sean Perks, Assignment 4, creature header file
+// Sean Perks, Assignment 5, creature header file
 
 
 #ifndef __CREATURE_H_
@@ -62,7 +62,7 @@ class Creature {
 
 // helpers
 void toLower(char str[]);
-double readDouble();
+double readDouble(double);
 int readInt();
 
 #endif

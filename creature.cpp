@@ -1,4 +1,4 @@
-// Sean Perks, Assignment 4, creature cpp file.  
+// Sean Perks, Assignment 5, creature cpp file.  
 
 #include "creature.h"
 
@@ -269,15 +269,26 @@ int readInt() {
 }
 
 // read, validate and return an int
-double readDouble() {	
+double readDouble(double lt = 0.0) {	
     double temp = 0.0;
     cin >> temp;
-    //data validation
-    while (!cin || temp < 0) {
-        cin.clear();
-        cin.ignore(100, '\n');
-        cout << "Invalid number, please try again: ";
-        cin >> temp;
+    if (lt > 0.0){
+	//data validation
+	while (!cin || temp < 0 || temp > lt) {
+	    cin.clear();
+	    cin.ignore(100, '\n');
+	    cout << "Invalid number, please try again: ";
+	    cin >> temp;
+	}
+    }
+    
+    else {
+	while (!cin || temp < 0) {
+	    cin.clear();
+	    cin.ignore(100, '\n');
+	    cout << "Invalid number, please try again: ";
+	    cin >> temp;
+	}
     }
     cin.ignore(100, '\n');
 
